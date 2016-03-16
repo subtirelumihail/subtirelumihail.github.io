@@ -1,5 +1,6 @@
 import chalk      from "chalk";
 import readline   from 'readline';
+import ip         from 'ip';
 import {log}      from './logger';
 
 import config  from './config';
@@ -7,9 +8,11 @@ const {port, hostname} =  config;
 
 export const url  = chalk.yellow.bold(`${hostname}:${port}`);
 
+const ipAddress = ip.address();
 export const resetTerminal = () => {
   process.stdout.write('\u001B[2J\u001B[0;0f');
-  console.log(`Listening at: [ ${url} ]\n`);
+  console.log(`Listening at: [ ${url} ]`);
+  console.log(`Listening at: [ ${ipAddress} ]\n`);
 };
 
 const rl = readline.createInterface(process.stdin, process.stdout);
@@ -47,6 +50,7 @@ export default {
             break;
           case 'url':
             log(url);
+            log(ipAddress);
             break;
           case 'clear':
             resetTerminal();

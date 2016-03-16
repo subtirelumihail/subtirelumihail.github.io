@@ -51,7 +51,7 @@ new WebpackDevServer(webpack(webpackConfig), {
     chunkModules: false,
     children: false
   },
-}).listen(port, hostname, (err) => {
+}).listen(port, '0.0.0.0', (err) => {
   if (err) {
     log(chalk.red(err));
     buidInvalidLogger();

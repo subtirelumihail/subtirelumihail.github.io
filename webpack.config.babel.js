@@ -1,5 +1,6 @@
-import webpack from 'webpack';
-import path    from 'path';
+import webpack      from 'webpack';
+import path         from 'path';
+import autoprefixer from 'autoprefixer';
 
 //Plugins
 import HtmlWebpackPlugin from "html-webpack-plugin";
@@ -7,7 +8,7 @@ import ExtractTextPlugin from "extract-text-webpack-plugin";
 
 
 const cssLoaderStr = [
-  "css-loader?sourceMap&modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]",
+  "css-loader?sourceMap",
   "postcss-loader",
   "sass-loader" + '?sourceMap&outputStyle=expanded&sourceMap=true&sourceMapContents=true'
 ].join("!");
@@ -37,9 +38,12 @@ module.exports = {
             { test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&minetype=image/svg+xml" }
         ]
     },
+    postcss: () => {
+      return [autoprefixer];
+    },
     plugins: [
       new HtmlWebpackPlugin({
-        template: "./src/index.html",
+        template: "./index.html",
         inject: 'body'
       }),
       new ExtractTextPlugin("[contenthash].css"),
