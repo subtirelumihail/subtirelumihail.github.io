@@ -1,0 +1,26 @@
+{
+  // Environments
+  "browser" : true,
+  "node" : true,
+  "esnext": true,
+  
+  // Enforcing Options
+  "bitwise" : true,
+  "curly" : true,
+  "eqeqeq" : true,
+  "forin": true,
+  "latedef" : true,
+  "newcap" : true,
+  "noarg" : true,
+  "noempty" : true,
+  "nonew" : true,
+  "regexp" : true,
+  "strict" : false,
+  "trailing" : true,
+  "undef" : true,
+  "unused" : true,
+  // Relaxing
+  "loopfunc": true,
+  "jquery" : true,
+  "globals": {}
+}
