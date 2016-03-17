@@ -4,5 +4,5 @@ git commit -m 'Make build'
 git push
 git checkout master
 git merge dev
-git push master
+git push
 git checkout dev
