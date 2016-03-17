@@ -2,9 +2,8 @@ import 'styles/main.scss';
 
 var s = document.getElementById('space');
 var ctx = s.getContext('2d');
-var w;
-var h;
-var resizeInterval;
+var w = s.width = 500;
+var h = w;
 
 var i = 0;
 var y = true;
@@ -12,14 +11,6 @@ var z = 360;
 
 //Circle values
 const radius = s.height/2;
-
-const resize = () => {
-  clearInterval(resizeInterval);
-  resizeInterval = setTimeout(() => {
-    s.width = w = window.innerWidth;
-    s.height = h = w;
-  }, 10);
-};
 
 const addColors = (gradient) => {
   const colors = ['red', 'green', 'blue'];
@@ -71,7 +62,7 @@ const go = () => {
   ctx.fillRect(0,0,w,h); // clear canvas
   
   let d = true;
-  for (let n=0; n<=radius; n=n+radius/5){
+  for (let n=0; n<=radius; n=n+radius/6){
     draw(n, d);
     d = !d;
   }
@@ -79,6 +70,3 @@ const go = () => {
 };
 
 go();
-resize();
-
-window.addEventListener('resize', resize, false);
